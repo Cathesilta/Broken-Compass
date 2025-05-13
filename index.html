@@ -1,60 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Broken Compass</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    header {
-      text-align: center;
-      padding-top: 40px;
-    }
-    .spacer {
-      height: 10em;
-    }
-    .links {
-      text-align: center;
-      font-size: 1.5em;
-      line-height: 2em;
-    }
-    .footer {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      text-align: center;
-      font-size: 0.8em;
-    }
-    .footer img {
-      width: 40px;
-      display: block;
-      margin: 0 auto;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <header>
-    <img src="image/broken_compass.jpg" alt="Logo" style="max-height: 100px;">
+    <img src="image/broken_compass.jpg" alt="Main Logo" class="main-logo">
   </header>
 
   <div class="spacer"></div>
 
-  <div class="links">
-    <a href="curiosities.html">My top curiocities</a><br>
-    <a href="books.html">Books</a><br>
-    <a href="babelogue.html">Babelogue</a>
-  </div>
+  <nav class="links">
+    <div class="link-item"><a href="curiosities.html">My top curiosities</a></div>
+    <div class="link-item"><a href="books.html">Books</a></div>
+    <div class="link-item"><a href="babelogue.html">Babelogue</a></div>
+  </nav>
 
-  <div class="footer">
-    <img src="image/broken_compass.jpg" alt="Small Logo" style="width: 40px;">
-    <div>MySiteName</div>
-  </div>
+  <footer>
+    <img src="image/broken_compass.jpg" alt="Small Logo" class="small-logo">
+    <div class="site-name">Broken Compass</div>
+  </footer>
 
 </body>
 </html>
