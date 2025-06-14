@@ -92,8 +92,23 @@ body {
   }
 
   footer {
-    position: static;
-    margin-top: 2em;
-    text-align: center;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    text-align: left;
+    font-size: 0.8em;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* optional spacing between logo and text */
+  }
+
+  .small-logo {
+    width: 40px;
+    display: inline-block;
+  }
+
+  .site-name {
+    display: inline-block;
   }
 }
