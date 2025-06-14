@@ -1,3 +1,5 @@
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -52,3 +54,46 @@ body {
   .site-name {
     margin-top: 0.2em;
   }
+
+
+  /* ----- Mobile styles (media query) ----- */
+@media (max-width: 768px) {
+  header {
+    padding-top: 4em;
+    padding-bottom: 1em;
+  }
+
+  .main-logo {
+    max-width: 80%;
+    height: auto;
+  }
+
+  .spacer {
+    height: 3em;
+  }
+
+  .links {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+
+  .link-item {
+    padding: 0 10px;
+    word-break: break-word;
+  }
+
+  .link-item a {
+    font-size: 1.1em;
+  }
+
+  footer {
+    position: static;
+    margin-top: 2em;
+    text-align: center;
+  }
+}
