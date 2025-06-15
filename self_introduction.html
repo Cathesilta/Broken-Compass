@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Who is Shen</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .intro-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5em;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .intro-item {
+      font-size: 1.8em;
+      color: #0366d6;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .intro-item:hover {
+      transform: scale(1.05);
+      text-decoration: underline;
+    }
+
+    /* Overlay */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 900;
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border: 2px solid #333;
+      padding: 20px 25px;
+      z-index: 1000;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      width: 80%;
+      max-width: 400px;
+      border-radius: 10px;
+      font-size: 1em;
+      text-align: center;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+
+    .modal.show {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to   { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    /* Mobile support */
+    @media (max-width: 768px) {
+      body {
+        padding: 1em;
+        justify-content: flex-start;
+      }
+
+      .intro-item {
+        font-size: 1.4em;
+      }
+
+      .modal {
+        width: 90%;
+        font-size: 0.95em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="intro-container">
+    <div class="intro-item" data-modal="modal1">Cleanness</div>
+    <div class="intro-item" data-modal="modal2">Dream Crafter</div>
+    <div class="intro-item" data-modal="modal3">Explorer</div>
+    <div class="intro-item" data-modal="modal4">System Thinker</div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Modals -->
+  <div id="modal1" class="modal">I seek clarity and simplicity in everything I do. My workspace, code, and lifestyle reflect this mindset.</div>
+  <div id="modal2" class="modal">I turn abstract dreams into tangible ideas — whether it's stories, tools, or systems.</div>
+  <div id="modal3" class="modal">Curiosity is my compass. I explore tech, art, people, and everything in between.</div>
+  <div id="modal4" class="modal">I build systems to solve problems — from code to business models, workflows to worldviews.</div>
+
+  <script>
+    const introItems = document.querySelectorAll('.intro-item');
+    const modals = document.querySelectorAll('.modal');
+    const overlay = document.getElementById('overlay');
+
+    function closeAllModals() {
+      modals.forEach(modal => modal.classList.remove('show'));
+      overlay.classList.remove('show');
+    }
+
+    introItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const targetId = item.getAttribute('data-modal');
+        closeAllModals();
+        document.getElementById(targetId).classList.add('show');
+        overlay.classList.add('show');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.modal') && !e.target.classList.contains('intro-item')) {
+        closeAllModals();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAllModals();
+      }
+    });
+  </script>
+
+</body>
+</html>
